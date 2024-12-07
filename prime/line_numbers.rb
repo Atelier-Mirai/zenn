@@ -21,6 +21,7 @@ def line_count(pre)
   pre.text.count("\n") + 1
 end
 
+# 各preタグについて、加工処理を行う
 pre_tags.each do |pre|
   pre[:class] += " line-numbers"
   code = pre.css("code").first
@@ -45,9 +46,6 @@ pre_tags.each do |pre|
   # 元の<code>要素に代え、新しい<code>要素で置換する
   code.replace(cloned_code)
 end
-
-# 変更後のHTMLを出力
-# puts doc.to_html
 
 # 変更後のHTMLをファイルに書き込む
 File.open(ARGV[0], "w") do |file|
