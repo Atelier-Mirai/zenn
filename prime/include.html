@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>include 練習</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="prism.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="include-練習">
+      <h1 id="include-練習">include 練習</h1>
+      <p><code>include</code>構文の練習です。</p>
+      <section class="level2" aria-labelledby="ruby">
+        <h2 id="ruby">Ruby</h2>
+        <figure class="language-ruby">
+          <figcaption>prime.rb</figcaption>
+          <pre class="language-ruby line-numbers"><code class="language-ruby line-numbers"><span class="token keyword">def</span> <span class="token method-definition"><span class="token function">prime</span></span><span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token keyword">if</span> num <span class="token operator">&lt;=</span> <span class="token number">1</span>
+  <span class="token punctuation">(</span><span class="token number">2.</span><span class="token punctuation">.</span>Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>none<span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token operator">|</span>i<span class="token operator">|</span> num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+primes <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.</span><span class="token number">.100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select <span class="token punctuation">{</span> <span class="token operator">|</span>num<span class="token operator">|</span> prime<span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+puts primes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </figure>
+      </section>
+      <section class="level2" aria-labelledby="honkit">
+        <h2 id="honkit">HonKit</h2>
+        <figure class="language-ruby">
+          <figcaption>prime.rb</figcaption>
+          <pre class="language-ruby line-numbers"><code class="language-ruby line-numbers"><span class="token keyword">def</span> <span class="token method-definition"><span class="token function">prime</span></span><span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token keyword">if</span> num <span class="token operator">&lt;=</span> <span class="token number">1</span>
+  <span class="token punctuation">(</span><span class="token number">2.</span><span class="token punctuation">.</span>Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>none<span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token operator">|</span>i<span class="token operator">|</span> num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+primes <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.</span><span class="token number">.100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select <span class="token punctuation">{</span> <span class="token operator">|</span>num<span class="token operator">|</span> prime<span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+puts primes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </figure>
+      </section>
+      <section class="level2" aria-labelledby="block-code">
+        <h2 id="block-code">Block Code</h2>
+        <figure class="language-ruby">
+          <figcaption>prime.rb</figcaption>
+          <pre class="language-ruby line-numbers"><code class="language-ruby line-numbers"><span class="token comment"># current</span>
+<span class="token keyword">def</span> <span class="token method-definition"><span class="token function">prime</span></span><span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token keyword">if</span> num <span class="token operator">&lt;=</span> <span class="token number">1</span>
+  <span class="token punctuation">(</span><span class="token number">2.</span><span class="token punctuation">.</span>Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>none<span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token operator">|</span>i<span class="token operator">|</span> num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+primes <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.</span><span class="token number">.100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select <span class="token punctuation">{</span> <span class="token operator">|</span>num<span class="token operator">|</span> prime<span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+puts primes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </figure>
+      </section>
+      <section class="level2" aria-labelledby="one-line">
+        <h2 id="one-line">One Line</h2>
+        <figure class="language-ruby">
+          <figcaption>prime.rb</figcaption>
+          <pre class="language-ruby line-numbers"><code class="language-ruby line-numbers"><span class="token comment"># current</span>
+<span class="token keyword">def</span> <span class="token method-definition"><span class="token function">prime</span></span><span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token keyword">if</span> num <span class="token operator">&lt;=</span> <span class="token number">1</span>
+  <span class="token punctuation">(</span><span class="token number">2.</span><span class="token punctuation">.</span>Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>none<span class="token operator">?</span> <span class="token punctuation">{</span> <span class="token operator">|</span>i<span class="token operator">|</span> num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+primes <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.</span><span class="token number">.100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select <span class="token punctuation">{</span> <span class="token operator">|</span>num<span class="token operator">|</span> prime<span class="token operator">?</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+puts primes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </figure>
+      </section>
+    </section>
+  </body>
+</html>

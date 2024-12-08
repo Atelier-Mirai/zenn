@@ -23,13 +23,17 @@ end
 # 変換対象ファイルへの繰り返し処理
 files.each do |file|
   # 実行するコマンドを設定
+  temporary_file = "_i_#{file}.md"
   command = <<~CMD
-    vfm #{file}.md > #{file}.html
+    ruby include.rb #{file}.md
+    vfm #{temporary_file} > #{file}.html
     ruby line_numbers.rb #{file}.html
   CMD
 
   # コマンドを実行する
   output = `#{command}`
+  # 作業ファイルを削除する
+  File.delete(temporary_file)
 end
 
 # 結果を表示
