@@ -3,7 +3,7 @@ title: "Markdown で技術書を作る CLI「Vivlio Starter」を作りました
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Ruby", "CSS組版", "vivliostyle", "Markdown", "技術書典"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -18,12 +18,15 @@ published: false
 
 CSS 組版エンジン [Vivliostyle](https://vivliostyle.org/) をコアに据えていますが、単なるラッパーではありません。原稿の前処理から目次生成、索引の構築、表紙作成、トンボ付き入稿用 PDF の出力まで、必要な処理の約半分を独自に担っています。
 
-この記事を書いている時点で **v1.0.0-rc.2**。付属のガイドブック『はじめての技術書づくり』（A4・347 ページ）も Vivlio Starter 自身で組んでいます。
+この記事を書いている時点で **v1.0.0-rc.2** です。付属のガイドブック『はじめての技術書づくり』（A4・347 ページ）も Vivlio Starter 自身で組んでいます。
+
+- リポジトリ: https://github.com/Atelier-Mirai/vivlio-starter
+- RubyGems: https://rubygems.org/gems/vivlio-starter
 
 ## 3 コマンドで本ができる
 
 ```bash
-gem install vivlio-starter
+gem install vivlio-starter --pre   # 現在はリリース候補版のため --pre が要ります
 
 vs new mybook       # プロジェクト作成（必要な外部ツールも自動セットアップ）
 cd mybook
@@ -88,15 +91,14 @@ EPUB と Kindle を分けているのには理由があります。Kindle（KFX�
 
 ````markdown
 :::{.showcase}
-![ビルド結果の画面](build-result.png)
-
-- box: 120,340,480,90
-- arrow: 620,300 → 500,360
-- badge: 1 at 140,300
+![バイオリンを弾くアインシュタイン](Einstein.webp)
+# 行頭が # の行はコメントです（出力されません）
+rect:1 530, 335, 175, 165 {pos=bottom} 愛用のバイオリン
+pointer:2 490, 130 {label="白髪"} くしゃくしゃの白髪
 :::
 ````
 
-座標は千分率なので、画像を差し替えてもずれません。注釈が原稿と一緒にバージョン管理できるのも利点です。
+`rect:1` の `1` は丸数字の番号、続く 4 つの数字が位置と大きさです。座標は千分率なので、画像を差し替えてもずれません。元の画像には一切手を加えないので、注釈だけを原稿と一緒にバージョン管理できます。
 
 ### ダイアグラム ` ```mermaid `
 
@@ -110,7 +112,7 @@ EPUB と Kindle を分けているのには理由があります。Kindle（KFX�
 
 - **拡張テーブル** — セルの横結合（`||`）と複数行ヘッダーが、素のパイプテーブルのまま書けます
 - **`@` ディレクティブ** — `@vspace` で余白を微調整、`@pagebreak:recto` で右起こし、`@qr:URL` で QR コード、`@version` / `@today` でビルド時の値を差し込み
-- **コードの取り込み** — `codes/` から範囲指定で取り込むと、**元ファイルでの実際の行番号**が表示されます。紙面を見ながら元ファイルの該当箇所を探せます
+- **コードの取り込み** — ` ```include:sample.rb:10-20 ` のように `codes/` から範囲指定で取り込むと、**元ファイルでの実際の行番号**（この例なら 10 から）が表示されます。紙面を見ながら元ファイルの該当箇所を探せます
 - **数式** — LaTeX 記法を MathJax で SVG へ焼き込み。PDF・EPUB・Kindle で同じ見た目になります
 
 ## 執筆を支える道具
@@ -147,7 +149,7 @@ EPUB と Kindle を分けているのには理由があります。Kindle（KFX�
 
 そこで合成太字を止め、本文書体に太字が無いときだけ強調を見出し書体へ振る仕組みを入れました。生成 SVG（図解注釈・mermaid）は独立文書で本文の CSS が届かないため、**その SVG に出る字だけ**を抜き出したフォントを埋め込んでいます（8 文字で 3.3KB）。
 
-「CSS は正しいのに効かない」たぐいの落とし穴が CSS 組版には多く、この手の知見はリポジトリの `docs/specs/` に notes として溜めています。
+「CSS は正しいのに効かない」たぐいの落とし穴が CSS 組版には多いので、この手の知見はリポジトリの [`docs/specs/`](https://github.com/Atelier-Mirai/vivlio-starter/tree/master/docs/specs) に notes として溜めています。同じところで悩んでいる方の役に立つかもしれません。
 
 ## しくみ
 
